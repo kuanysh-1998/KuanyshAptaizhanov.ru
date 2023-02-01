@@ -8,14 +8,14 @@ const PostItem = ({ post, username, userId }) => {
   return (
     <div className="postitem">
       <div className="postitem__imagewrapper">
-        <img src={post?.image.url} alt="" className="postitem__image" />
+        <img src={post?.image?.url} alt="" className="postitem__image" />
       </div>
 
       <div className="postitem__infowrapper">
         <div className="postitem__info">
           <div className="postitem__author">
             <strong>Автор: </strong>
-            <Link className="postitem__username" to={profileLink} >
+            <Link className="postitem__username" to={profileLink}>
               {username ? username : post?.user?.username}
             </Link>
           </div>

@@ -62,7 +62,7 @@ const PostDetails = () => {
     <section className="postdetails">
       <div className="postdetails__imagewrapper">
         <img
-          src={file ? URL.createObjectURL(file) : post?.image.url}
+          src={file ? URL.createObjectURL(file) : post?.image?.url}
           alt=""
           className="postdetails__image"
         />

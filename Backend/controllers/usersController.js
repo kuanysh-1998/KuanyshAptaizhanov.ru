@@ -132,9 +132,9 @@ module.exports.deleteUserProfileCtrl = asyncHandler(async (req, res) => {
   }
 
   const posts = await Post.find({ user: user._id });
-  const publicIds = posts?.map((post) => post.image.publicId);
+  const publicIds = posts.map((post) => post.image.publicId);
 
-  if (publicIds?.length > 0) {
+  if (publicIds.length > 0) {
     await cloudinaryRemoveMultipleImage(publicIds);
   }
 
