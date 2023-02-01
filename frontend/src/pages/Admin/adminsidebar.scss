@@ -1,0 +1,30 @@
+.adminsidebar {
+  flex: 2;
+  border-right: 1px solid #111111;
+  padding: 20px;
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    display: block;
+  }
+  &__list {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  &__link {
+    color: var(--secondary-color);
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .adminsidebar {
+    display: none;
+  }
+}

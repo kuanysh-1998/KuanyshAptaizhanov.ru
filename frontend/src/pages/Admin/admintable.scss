@@ -1,0 +1,136 @@
+.table {
+  display: flex;
+  height: calc(100vh -300px);
+  overflow: hidden;
+  &__wrapper {
+    flex: 10;
+    padding: 20px;
+    overflow-y: scroll;
+  }
+  &__title {
+    font-size: 30px;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 3px;
+    width: max-content;
+  }
+  &__table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    & th,
+    td {
+      border: 1px solid #111111;
+      padding: 10px;
+    }
+    & th {
+      background-color: var(--primary-color);
+      color: #ffffff;
+    }
+    & tr:nth-child(even) {
+      background-color: #ffffff;
+    }
+    & tr {
+      &:hover {
+        background-color: var(--bg-color);
+      }
+    }
+  }
+  &__image {
+    display: flex;
+    align-items: center;
+  }
+  &__userimg {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  &__username {
+    font-size: 17px;
+    font-weight: 500;
+    margin-left: 5px;
+  }
+  &__btngroup {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    & button {
+      border: none;
+      background-color: var(--blue-color);
+      color: #ffffff;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 17px;
+      font-weight: 500;
+      padding: 5px;
+      &:last-child {
+        background-color: var(--red-color);
+        &:hover {
+          background-color: red;
+        }
+      }
+      &:first-child {
+        color: #ffffff;
+        &:hover {
+          background-color: blue;
+        }
+      }
+      & a {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .table {
+    &__wrapper {
+      padding: 15px;
+    }
+    &__btngroup {
+      flex-wrap: wrap;
+      & button {
+        width: 100%;
+        margin: 10px 0;
+      }
+    }
+    &__table th,
+    td {
+      padding: 5px;
+    }
+    &__image {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .table {
+    &__th th{
+        font-size: 12px;
+    }
+    &__wrapper {
+      padding: 5px;
+    }
+    &__table th, td{
+        padding: 5px;
+        font-size: 12px;
+    }
+    &__btngroup {
+      & button {
+        width: 100%;
+        border-radius: 5px;
+        font-size: 10px;
+        font-weight: 500;
+        padding: 3px;
+      }
+    }
+    &__username{
+        font-size: 10px;
+    }
+  }
+}

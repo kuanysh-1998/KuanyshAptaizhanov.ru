@@ -1,0 +1,50 @@
+.commentlist {
+  padding: 5px;
+  border-radius: 5px;
+  margin: 10px 0;
+  &__count {
+    font-size: 30px;
+    color: var(--dark-color);
+    border-bottom: 1px solid var(--dark-color);
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+  }
+  &__item {
+    padding: 7px;
+    border: 1px solid #111111;
+    border-radius: 5px;
+    margin-top: 15px;
+    background-color: #f9f8f4;
+  }
+  &__info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  &__username {
+    font-size: 21px;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-transform: capitalize;
+  }
+  &__time {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--pumpkin-color);
+  }
+  &__text {
+    padding: 10px;
+    font-size: 17px;
+    color: var(--dark-color);
+  }
+  &__iconwrapper {
+    padding: 10px;
+    font-size: 18px;
+  }
+  &__icons {
+    cursor: pointer;
+  }
+  &__iconedit {
+    color: #111111;
+  }
+}

@@ -1,0 +1,119 @@
+.home {
+  &__header {
+    background: #f9f8f4;
+    height: 400px;
+    width: 100%;
+    margin-bottom: 4rem;
+    position: relative;
+    &-layout {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      right: 0;
+      width: 100%;
+    }
+  }
+  &__title {
+    animation-name: moveRight;
+    animation-duration: 2.5s;
+    font-size: 40px;
+    color: #111111;
+  }
+  &__titlename {
+    font-size: 45px;
+    color: #f8cd5f;
+    background-color: #111111;
+    border: 1px solid transparent;
+    border-radius: 16px;
+    padding: 10px;
+  }
+  &__container {
+    padding: 0 30px;
+    display: flex;
+    align-items: flex-start;
+  }
+  &__latestpost {
+    margin-left: 30px;
+    padding-bottom: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #111111;
+    width: max-content;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--dark-color);
+  }
+  &__seepostslink {
+    padding: 0 30px;
+    margin: 15px 0;
+  }
+  &__link {
+    width: 100%;
+    padding: 10px;
+    font-size: 21px;
+    background-color: #397ade;
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    display: block;
+    text-align: center;
+    border-radius: 5px;
+  }
+}
+
+// MEDIA QUERIES
+
+@media screen and (max-width: 990px) {
+  .home {
+    &__title {
+      font-size: 25px;
+    }
+    &__titlename {
+      font-size: 30px;
+      padding: 10px;
+    }
+    &__container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .home {
+    &__header{
+      height: 375px;
+    }
+    &__title {
+      font-size: 14px;
+    }
+    &__titlename {
+      font-size: 17px;
+    }
+    &__container {
+      padding: 0 15px;
+    }
+    &__latestpost {
+      margin-left: 15px;
+    }
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+

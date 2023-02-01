@@ -1,0 +1,30 @@
+.notfound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 130px);
+  &__title {
+    font-weight: bold;
+    font-size: 70px;
+    color: var(--red-color);
+  }
+  &__text {
+    font-size: 30px;
+    color: #111111;
+    margin-bottom: 30px;
+  }
+  &__link {
+    display: block;
+    color: #ffffff;
+    background: var(--blue-color);
+    font-size: 21px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+    &:hover {
+      background-color: blue;
+    }
+  }
+}

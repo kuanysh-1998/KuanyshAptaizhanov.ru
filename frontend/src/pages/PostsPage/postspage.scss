@@ -1,0 +1,28 @@
+.postspage{
+    display: flex;
+    align-items: flex-start;
+    padding: 30px;
+}
+
+
+
+
+
+
+
+
+
+// MEDIA QUERIES
+
+@media screen and (max-width: 990px) {
+    .postspage{
+        flex-direction: column;
+        align-items: center;
+    }
+  }
+  
+  @media screen and (max-width: 520px) {
+    .postspage{
+        padding: 15px;
+    }
+  }
