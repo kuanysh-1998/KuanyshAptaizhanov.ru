@@ -11,8 +11,6 @@ require("dotenv").config();
 // Connection to DB
 connectToDb();
 
-
-
 // Init App
 const app = express();
 
@@ -28,7 +26,11 @@ app.use(
   })
 );
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://80.249.150.74",
+  })
+);
 
 // Routes
 app.use("/api/auth", require("./routes/authRoute"));

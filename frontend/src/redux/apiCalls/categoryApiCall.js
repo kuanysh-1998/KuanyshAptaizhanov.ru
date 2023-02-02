@@ -8,7 +8,7 @@ export function fetchCategories() {
       const { data } = await request.get("/api/categories");
       dispatch(categoryActions.setCategories(data));
     } catch (error) {
-      toast.error(error.response.data.message);
+      console.log(error);
     }
   };
 }

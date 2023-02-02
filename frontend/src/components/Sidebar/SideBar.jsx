@@ -16,7 +16,7 @@ const Sidebar = () => {
       <h5 className="sidebar__title">КНИГИ</h5>
 
       <ul className="sidebar__links">
-        {[...categories].map((category) => (
+        {categories.map((category) => (
           <Link
             className="sidebar__link"
             key={category._id}

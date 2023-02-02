@@ -120,7 +120,7 @@ const PostDetails = () => {
             ></i>
           )}
 
-          <small>{post?.likes.length} likes</small>
+          <small>{post?.likes?.length} likes</small>
         </div>
 
         {user?._id === post?.user?._id && (
