@@ -29,6 +29,8 @@ app.use(
 app.use(
   cors({
     origin: "http://80.249.150.74",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
   })
 );
 
