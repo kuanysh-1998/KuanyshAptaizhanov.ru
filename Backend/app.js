@@ -11,10 +11,9 @@ require("dotenv").config();
 // Connection to DB
 connectToDb();
 
-app.use(cors());
-
 // Init App
 const app = express();
+app.use(cors());
 
 // Middlewares
 app.use(express.json());
