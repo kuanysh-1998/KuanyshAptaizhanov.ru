@@ -11,6 +11,8 @@ require("dotenv").config();
 // Connection to DB
 connectToDb();
 
+app.use(cors());
+
 // Init App
 const app = express();
 
@@ -25,8 +27,6 @@ app.use(
     max: 200,
   })
 );
-
-app.use(cors());
 
 // Routes
 app.use("/api/auth", require("./routes/authRoute"));
