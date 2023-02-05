@@ -15,9 +15,8 @@ connectToDb();
 const app = express();
 app.use(
   cors({
-    origin: "https://kuanyshaptaizhanov.ru",
-    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
+    origin: "http://kuanyshaptaizhanov.ru",
   })
 );
 // Middlewares
