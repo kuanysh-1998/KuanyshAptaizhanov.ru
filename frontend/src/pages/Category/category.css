@@ -11,3 +11,30 @@
   width: max-content;
   font-size: 30px;
 }
+
+.category__notfound {
+  font-size: 30px;
+  margin: 20px 0;
+  color: #111111;
+}
+
+.category__notfound span {
+  color: var(--red-color);
+}
+
+.category__notfound-link {
+  font-size: 21px;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 520px) {
+  .category__title {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--gray-color);
+    width: max-content;
+    font-size: 20px;
+  }
+}

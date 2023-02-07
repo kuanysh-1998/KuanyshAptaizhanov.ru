@@ -131,7 +131,7 @@ const Profile = () => {
       </div>
 
       <div className="profile__postslist">
-        <h2>Посты {profile?.username} </h2>
+        <h2>Публикации Куаныша Аптайжанова </h2>
         {profile?.posts?.map((post) => (
           <PostItem
             key={post._id}

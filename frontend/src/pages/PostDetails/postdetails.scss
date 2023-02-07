@@ -2,7 +2,7 @@
   width: 800px;
   margin: auto;
   padding: 20px;
-  &__infocomment{
+  &__infocomment {
     font-size: 16px;
     color: var(--gray-color);
   }
@@ -40,7 +40,6 @@
     text-align: center;
     font-size: 40px;
     color: #111111;
-    text-transform: capitalize;
     margin: 10px 0;
   }
   &__userinfo {
@@ -69,7 +68,7 @@
       color: var(--blue-color);
     }
   }
-  &__usr{
+  &__usr {
     color: #111111;
   }
   &__description {
@@ -87,7 +86,7 @@
     &-item {
       display: flex;
       align-items: center;
-      & i{
+      & i {
         cursor: pointer;
       }
     }
@@ -95,7 +94,7 @@
   &__icons {
     cursor: pointer;
   }
-  &__iconedit{
+  &__iconedit {
     color: #111111;
   }
 }
@@ -111,6 +110,10 @@
     padding: 15px;
     &__image {
       object-fit: cover;
+    }
+    &__title {
+      font-size: 27px;
+      color: #111111;
     }
   }
 }

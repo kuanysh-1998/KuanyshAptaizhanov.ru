@@ -16,10 +16,23 @@
     & span {
       color: var(--red-color);
     }
-    &-link{
+    &-link {
       font-size: 21px;
       text-decoration: underline;
       font-weight: 500;
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .category {
+    &__title {
+      margin-bottom: 15px;
+      color: var(--primary-color);
+      padding-bottom: 5px;
+      border-bottom: 2px solid var(--gray-color);
+      width: max-content;
+      font-size: 20px;
     }
   }
 }

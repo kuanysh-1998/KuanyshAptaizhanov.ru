@@ -124,5 +124,11 @@
     &__bio {
       text-align: center;
     }
+    &__postslist h2 {
+      margin-bottom: 20px;
+      padding: 5px 0;
+      font-size: 27px;
+      border-bottom: 1px solid var(--primary-color);
+    }
   }
 }
