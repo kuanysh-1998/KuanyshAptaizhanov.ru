@@ -28,6 +28,12 @@
   font-weight: 500;
 }
 
+@media screen and (max-width: 920px) {
+  .category__title {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 520px) {
   .category__title {
     margin-bottom: 15px;
@@ -36,5 +42,6 @@
     border-bottom: 2px solid var(--gray-color);
     width: max-content;
     font-size: 20px;
+    width: 100%;
   }
 }

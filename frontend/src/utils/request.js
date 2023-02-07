@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const request = axios.create({
-  baseURL: "http://kuanyshaptaizhanov.ru",
+baseURL: "http://localhost:8000",
 });
 
 export default request;

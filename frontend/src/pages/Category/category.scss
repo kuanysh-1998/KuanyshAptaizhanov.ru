@@ -24,6 +24,14 @@
   }
 }
 
+@media screen and (max-width: 920px) {
+  .category {
+    &__title {
+      width: 100%;
+    }
+  }
+}
+
 @media screen and (max-width: 520px) {
   .category {
     &__title {
@@ -33,6 +41,7 @@
       border-bottom: 2px solid var(--gray-color);
       width: max-content;
       font-size: 20px;
+      width: 100%;
     }
   }
 }

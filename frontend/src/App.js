@@ -37,23 +37,25 @@ function App() {
           path="/register"
           element={!user ? <Register /> : <Navigate to="/" />}
         />
-         <Route
+        <Route
           path="/users/:userId/verify/:token"
           element={!user ? <VerifyEmail /> : <Navigate to="/" />}
         />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/reset-password/:userId/:token" element={<ResetPassword />} />
+        <Route
+          path="/reset-password/:userId/:token"
+          element={<ResetPassword />}
+        />
         <Route path="/profile/:id" element={<Profile />} />
 
-        <Route path="posts">
-          <Route index element={<PostsPage />} />
-          <Route
-            path="create-post"
-            element={user?.isAdmin ? <CreatePost /> : <Navigate to="/" />}
-          />
-          <Route path="details/:id" element={<PostDetails />} />
-          <Route path="categories/:category" element={<Category />} />
-        </Route>
+        <Route path="/posts" element={<PostsPage />} />
+        <Route
+          path="/posts/create-post"
+          element={user?.isAdmin ? <CreatePost /> : <Navigate to="/" />}
+        />
+
+        <Route path="/posts/details/:id" element={<PostDetails />} />
+        <Route path="/posts/categories/:category" element={<Category />} />
 
         <Route path="admin-dashboard">
           <Route
