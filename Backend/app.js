@@ -2,6 +2,7 @@ const express = require("express");
 const connectToDb = require("./config/connectToDb");
 const { errorHandler, notFound } = require("./middlewares/error");
 const cors = require("cors");
+const path = require("path");
 const xss = require("xss-clean");
 const rateLimiting = require("express-rate-limit");
 const helmet = require("helmet");
@@ -41,6 +42,10 @@ app.use("/api/password", require("./routes/passwordRoute"));
 
 app.use(notFound);
 app.use(errorHandler);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
 
 // Running the server
 const PORT = process.env.PORT || 8000;

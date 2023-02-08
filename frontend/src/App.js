@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Forms/Login";
@@ -24,7 +24,7 @@ import VerifyEmail from "./pages/VerifyEmail/VerifyEmail";
 function App() {
   const { user } = useSelector((state) => state.auth);
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ToastContainer theme="colored" position="top-center" />
       <Header />
       <Routes>
@@ -83,7 +83,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
