@@ -16,7 +16,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: "http://kuanyshaptayzhanov.ru",
+    origin: "https://kuanyshaptayzhanov.ru",
   })
 );
 // Middlewares
