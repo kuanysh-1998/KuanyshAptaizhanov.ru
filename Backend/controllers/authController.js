@@ -46,7 +46,7 @@ module.exports.registerUserCtrl = asyncHandler(async (req, res) => {
 
   await verificationToken.save();
 
-  const link = `${process.env.CLIENT_DOMAIN}/users/${user._id}/verify/${verificationToken.token}`;
+  const link = `${process.env.CLIENT_DOMAIN}/#/users/${user._id}/verify/${verificationToken.token}`;
 
   const htmlTemplate = `
   <div>
@@ -100,7 +100,7 @@ module.exports.loginUserCtrl = asyncHandler(async (req, res) => {
       await verificationToken.save();
     }
 
-    const link = `${process.env.CLIENT_DOMAIN}/users/${user._id}/verify/${verificationToken.token}`;
+    const link = `${process.env.CLIENT_DOMAIN}/#/users/${user._id}/verify/${verificationToken.token}`;
 
     const htmlTemplate = `
     <div>

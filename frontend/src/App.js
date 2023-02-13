@@ -24,16 +24,17 @@ import VerifyEmail from "./pages/VerifyEmail/VerifyEmail";
 function App() {
   const { user } = useSelector((state) => state.auth);
   return (
-    <HashRouter>
-      <ToastContainer theme="colored" position="top-center" />
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/login"
-          element={!user ? <Login /> : <Navigate to="/" />}
-        />
-        <Route
+    <>
+      <HashRouter>
+        <ToastContainer theme="colored" position="top-center" />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/login"
+            element={!user ? <Login /> : <Navigate to="/" />}
+          />
+          <Route
           path="/register"
           element={!user ? <Register /> : <Navigate to="/" />}
         />
@@ -46,44 +47,47 @@ function App() {
           path="/reset-password/:userId/:token"
           element={<ResetPassword />}
         />
-        <Route path="/profile/:id" element={<Profile />} />
+          <Route path="/profile/:id" element={<Profile />} />
 
-        <Route path="/posts" element={<PostsPage />} />
-        <Route
-          path="/posts/create-post"
-          element={user?.isAdmin ? <CreatePost /> : <Navigate to="/" />}
-        />
+          <Route path="/posts" element={<PostsPage />} />
+          <Route
+            path="/posts/create-post"
+            element={user?.isAdmin ? <CreatePost /> : <Navigate to="/" />}
+          />
 
-        <Route path="/posts/details/:id" element={<PostDetails />} />
-        <Route path="/posts/categories/:category" element={<Category />} />
+          <Route path="/posts/details/:id" element={<PostDetails />} />
+          <Route path="/posts/categories/:category" element={<Category />} />
 
-        <Route path="admin-dashboard">
-          <Route
-            index
-            element={user?.isAdmin ? <AdminDashboard /> : <Navigate to="/" />}
-          />
-          <Route
-            path="users-table"
-            element={user?.isAdmin ? <UsersTable /> : <Navigate to="/" />}
-          />
-          <Route
-            path="posts-table"
-            element={user?.isAdmin ? <PostsTable /> : <Navigate to="/" />}
-          />
-          <Route
-            path="categories-table"
-            element={user?.isAdmin ? <CategoriesTable /> : <Navigate to="/" />}
-          />
-          <Route
-            path="comments-table"
-            element={user?.isAdmin ? <CommentsTable /> : <Navigate to="/" />}
-          />
-        </Route>
+          <Route path="admin-dashboard">
+            <Route
+              index
+              element={user?.isAdmin ? <AdminDashboard /> : <Navigate to="/" />}
+            />
+            <Route
+              path="users-table"
+              element={user?.isAdmin ? <UsersTable /> : <Navigate to="/" />}
+            />
+            <Route
+              path="posts-table"
+              element={user?.isAdmin ? <PostsTable /> : <Navigate to="/" />}
+            />
+            <Route
+              path="categories-table"
+              element={
+                user?.isAdmin ? <CategoriesTable /> : <Navigate to="/" />
+              }
+            />
+            <Route
+              path="comments-table"
+              element={user?.isAdmin ? <CommentsTable /> : <Navigate to="/" />}
+            />
+          </Route>
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </HashRouter>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </HashRouter>
+    </>
   );
 }
 

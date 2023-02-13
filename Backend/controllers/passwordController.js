@@ -37,7 +37,7 @@ module.exports.sendResetPasswordLinkCtrl = asyncHandler(async (req, res) => {
     await verificationToken.save();
   }
 
-  const link = `${process.env.CLIENT_DOMAIN}/reset-password/${user._id}/${verificationToken.token}`;
+  const link = `${process.env.CLIENT_DOMAIN}/#/reset-password/${user._id}/${verificationToken.token}`;
   const htmlTemplate = `<a href="${link}">Нажмите здесь чтобы восстановить пароль!</a>`;
   await sendEmail(user.email, "Восстановить пароль!", htmlTemplate);
   res.status(200).json({

@@ -16,7 +16,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: "https://kuanyshaptayzhanov.ru",
+    origin: "http://localhost:3000",
   })
 );
 // Middlewares
