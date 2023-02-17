@@ -1,10 +1,12 @@
 import "./update.scss";
 import { BsXCircle } from "react-icons/bs";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { updatePost } from "../../redux/apiCalls/postApiCall";
 import { fetchCategories } from "../../redux/apiCalls/categoryApiCall";
+import SimpleMDE from "react-simplemde-editor";
+import "easymde/dist/easymde.min.css";
 
 const UpdatePostModal = ({ setUpdatePost, post }) => {
   const dispatch = useDispatch();
@@ -28,6 +30,25 @@ const UpdatePostModal = ({ setUpdatePost, post }) => {
 
   useEffect(() => {
     dispatch(fetchCategories());
+  }, []);
+
+  const options = useMemo(
+    () => ({
+      spellChecker: false,
+      maxHeight: '400px',
+      autofocus: true,
+      placeholder: 'Введите текст...',
+      status: false,
+      autosave: {
+        enabled: true,
+        delay: 1000,
+      },
+    }),
+    [],
+  );
+
+  const onChange = useCallback((description) => {
+    setDescription(description);
   }, []);
 
   return (
@@ -60,12 +81,16 @@ const UpdatePostModal = ({ setUpdatePost, post }) => {
             </option>
           ))}
         </select>
-        <textarea
-          className="update__textarea"
-          rows="5"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        ></textarea>
+
+        <SimpleMDE value={description} onChange={onChange} options={options} />
+
+        {/* <textarea
+        //   className="update__textarea"
+        //   rows="5"
+        //   value={description}
+        //   onChange={(e) => setDescription(e.target.value)}
+        // ></textarea> */}
+
         <button type="submit" className="update__btn">
           Обновить Пост
         </button>

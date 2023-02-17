@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { toast } from "react-toastify";
 import "./createpost.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { createPost } from "../../redux/apiCalls/postApiCall";
 import { RotatingLines } from "react-loader-spinner";
 import { fetchCategories } from "../../redux/apiCalls/categoryApiCall";
+import SimpleMDE from "react-simplemde-editor";
+import "easymde/dist/easymde.min.css";
 
 const CreatePost = () => {
   const dispatch = useDispatch();
@@ -17,6 +19,7 @@ const CreatePost = () => {
   const [file, setFile] = useState(null);
 
   const formSubmitHandler = (e) => {
+
     e.preventDefault();
     if (title.trim() === "") return toast.error("Напишите название для поста!");
     if (description.trim() === "")
@@ -44,6 +47,26 @@ const CreatePost = () => {
   useEffect(() => {
     dispatch(fetchCategories());
   }, []);
+
+  const options = useMemo(
+    () => ({
+      spellChecker: false,
+      maxHeight: '400px',
+      autofocus: true,
+      placeholder: 'Введите текст...',
+      status: false,
+      autosave: {
+        enabled: true,
+        delay: 1000,
+      },
+    }),
+    [],
+  );
+
+  const onChange = useCallback((description) => {
+    setDescription(description);
+  }, []);
+
   return (
     <section className="createpost">
       <h1 className="createpost__title">Создать Новый Пост</h1>
@@ -71,13 +94,17 @@ const CreatePost = () => {
             </option>
           ))}
         </select>
-        <textarea
+
+        <SimpleMDE value={description} onChange={onChange} options={options} />
+
+        {/* <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           className="createpost__textarea"
           rows="5"
           placeholder="Описание поста"
-        ></textarea>
+        ></textarea> */}
+
         <input
           type="file"
           name="file"
@@ -105,3 +132,4 @@ const CreatePost = () => {
 };
 
 export default CreatePost;
+

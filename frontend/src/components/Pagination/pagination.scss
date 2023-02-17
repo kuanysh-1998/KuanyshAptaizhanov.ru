@@ -32,6 +32,23 @@
   }
 }
 
-button:disabled {
+.disabled {
   cursor: not-allowed;
+  color: rgba(0, 0, 0, 0.5);
 }
+
+
+@media screen and (max-width: 700px) {
+  .pagination{
+    width: 100%;
+    &__page {
+      width: 40px;
+      height: 40px;
+      font-size: 15px;
+      font-weight: 700;
+  }
+  &__prev,
+  &__next {
+    width: 100%;
+  }
+}}

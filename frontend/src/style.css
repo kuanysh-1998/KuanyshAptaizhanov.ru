@@ -1,15 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 :root {
   --main-color: #efefef;
   --primary-color: #1d2d3d;
   --secondary-color: #495e74;
   --gray-color: #778697;
   --dark-color: #292b2c;
-  --blue-color: #0275d8;
+  --blue-color: #397ADE;
   --green-color: #27ae60;
   --green-sea-color: #16a085;
   --pumpkin-color: #d35400;
   --red-color: #d9534f;
   --white-color: #fff;
+  --yellow-color: #F1CF71;
+  --bg-color: #f9f8f4;
   --transition: all 0.4s ease;
 }
 
@@ -17,12 +20,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+  font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
 }
 
 body {
-  background-color: var(--main-color);
   overflow-x: hidden;
+  background: #fff;
 }
 
 a {

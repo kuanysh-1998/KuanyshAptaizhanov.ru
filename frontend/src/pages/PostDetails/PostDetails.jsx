@@ -16,6 +16,7 @@ import {
   toggleLikePost,
   updatePostImage,
 } from "../../redux/apiCalls/postApiCall";
+import ReactMarkdown from 'react-markdown'
 
 const PostDetails = () => {
   const dispatch = useDispatch();
@@ -106,7 +107,9 @@ const PostDetails = () => {
           <span>{new Date(post?.createdAt).toLocaleDateString()}</span>
         </div>
       </div>
-      <p className="postdetails__description">{post?.description}</p>
+      
+      <ReactMarkdown children={post?.description} className="postdetails__description" />
+      {/* <p dangerouslySetInnerHTML={{__html: post?.description}} className="postdetails__description"></p> */}
       <div className="postdetails__iconwrapper">
         <div className="postdetails__iconwrapper-item">
           {user && (

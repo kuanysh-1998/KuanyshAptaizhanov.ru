@@ -1,13 +1,30 @@
 import "./pagination.scss";
+import ReactPaginate from "react-paginate";
 
 const Pagination = ({ pages, currentPage, setCurrentPage }) => {
-  const generatedPages = [];
-  for (let i = 1; i <= pages; i++) {
-    generatedPages.push(i);
-  }
+  const handlePageClick = async (data) => {
+    currentPage = data.selected + 1;
+    setCurrentPage(currentPage);
+  };
+  
   return (
     <div className="pagination">
-      <button
+      <ReactPaginate
+        previousLabel={"Предыдущая"}
+        nextLabel={"Следующая"}
+        breakLabel={"..."}
+        breakClassName={"pagination__page"}
+        pageCount={pages}
+        onPageChange={handlePageClick}
+        containerClassName={"pagination"}
+        pageClassName={"pagination__page"}
+        previousLinkClassName={"pagination__page pagination__prev"}
+        nextLinkClassName={"pagination__page pagination__next"}
+        activeClassName={"pagination__page active"}
+        disabledLinkClassName={currentPage ? "disabled" : ""}
+      />
+
+      {/* <button
         onClick={() => setCurrentPage((current) => current - 1)}
         disabled={currentPage === 1}
         className="pagination__page pagination__prev"
@@ -33,7 +50,7 @@ const Pagination = ({ pages, currentPage, setCurrentPage }) => {
         className="pagination__page pagination__next"
       >
         Следующая
-      </button>
+      </button> */}
     </div>
   );
 };

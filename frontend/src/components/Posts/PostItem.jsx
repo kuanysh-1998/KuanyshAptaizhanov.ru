@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ReactMarkdown from 'react-markdown'
 
 const PostItem = ({ post, username, userId }) => {
   const profileLink = userId
@@ -34,7 +35,13 @@ const PostItem = ({ post, username, userId }) => {
           </Link>
         </div>
 
-        <p className="postitem__description">{post?.description}</p>
+        <ReactMarkdown children={post?.description} className="postitem__description" />
+
+
+        {/* <p
+          dangerouslySetInnerHTML={{ __html: post?.description }}
+          className="postitem__description"
+        ></p> */}
         <Link className="postitem__link" to={`/posts/details/${post?._id}`}>
           Читать...
         </Link>

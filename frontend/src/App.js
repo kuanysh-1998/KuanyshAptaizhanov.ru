@@ -21,6 +21,7 @@ import NotFound from "./pages/NotFound/NotFound";
 import { useSelector } from "react-redux";
 import VerifyEmail from "./pages/VerifyEmail/VerifyEmail";
 
+
 function App() {
   const { user } = useSelector((state) => state.auth);
   return (

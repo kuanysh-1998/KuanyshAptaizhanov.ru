@@ -1,5 +1,5 @@
 .postdetails {
-  width: 800px;
+  width: 900px;
   margin: auto;
   padding: 20px;
 }
@@ -87,7 +87,7 @@
 }
 
 .postdetails__description {
-  font-size: 21px;
+  font-size: 1.2rem;
   line-height: 1.8;
   color: #111111;
 }
@@ -127,6 +127,7 @@
 @media screen and (max-width: 520px) {
   .postdetails {
     padding: 15px;
+    width: 100%;
   }
   .postdetails__image {
     object-fit: cover;
