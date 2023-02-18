@@ -5,8 +5,7 @@ import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { updatePost } from "../../redux/apiCalls/postApiCall";
 import { fetchCategories } from "../../redux/apiCalls/categoryApiCall";
-import SimpleMDE from "react-simplemde-editor";
-import "easymde/dist/easymde.min.css";
+import { Editor } from "@tinymce/tinymce-react";
 
 const UpdatePostModal = ({ setUpdatePost, post }) => {
   const dispatch = useDispatch();
@@ -30,25 +29,6 @@ const UpdatePostModal = ({ setUpdatePost, post }) => {
 
   useEffect(() => {
     dispatch(fetchCategories());
-  }, []);
-
-  const options = useMemo(
-    () => ({
-      spellChecker: false,
-      maxHeight: '400px',
-      autofocus: true,
-      placeholder: 'Введите текст...',
-      status: false,
-      autosave: {
-        enabled: true,
-        delay: 1000,
-      },
-    }),
-    [],
-  );
-
-  const onChange = useCallback((description) => {
-    setDescription(description);
   }, []);
 
   return (
@@ -82,14 +62,21 @@ const UpdatePostModal = ({ setUpdatePost, post }) => {
           ))}
         </select>
 
-        <SimpleMDE value={description} onChange={onChange} options={options} />
+        <Editor
+          apiKey="1v4buzu0uwzu0rbeb4r8jepdrjiszv2bc1fombmbo4tjj3yn"
+          initialValue={description}
+          onEditorChange={(newText) => {
+            setDescription(newText);
+          }}
+        />
 
-        {/* <textarea
-        //   className="update__textarea"
-        //   rows="5"
-        //   value={description}
-        //   onChange={(e) => setDescription(e.target.value)}
-        // ></textarea> */}
+        {/* 
+        <textarea
+          className="update__textarea"
+          rows="5"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        ></textarea> */}
 
         <button type="submit" className="update__btn">
           Обновить Пост

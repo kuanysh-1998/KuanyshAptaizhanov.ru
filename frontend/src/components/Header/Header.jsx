@@ -1,5 +1,5 @@
 import "./header.scss";
-import { useState, useEffect } from "react";
+import { useState, } from "react";
 import HeaderLeft from "./HeaderLeft";
 import Navbar from "./Navbar";
 import HeaderRight from "./HeaderRight";

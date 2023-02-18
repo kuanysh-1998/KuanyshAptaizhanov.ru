@@ -1,5 +1,5 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import ReactMarkdown from 'react-markdown'
 
 const PostItem = ({ post, username, userId }) => {
   const profileLink = userId
@@ -34,14 +34,10 @@ const PostItem = ({ post, username, userId }) => {
             {post?.category}
           </Link>
         </div>
-
-        <ReactMarkdown children={post?.description} className="postitem__description" />
-
-
-        {/* <p
+        <p
           dangerouslySetInnerHTML={{ __html: post?.description }}
           className="postitem__description"
-        ></p> */}
+        ></p>
         <Link className="postitem__link" to={`/posts/details/${post?._id}`}>
           Читать...
         </Link>
@@ -49,5 +45,5 @@ const PostItem = ({ post, username, userId }) => {
     </div>
   );
 };
-
+ 
 export default PostItem;

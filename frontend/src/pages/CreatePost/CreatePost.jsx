@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "./createpost.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,8 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { createPost } from "../../redux/apiCalls/postApiCall";
 import { RotatingLines } from "react-loader-spinner";
 import { fetchCategories } from "../../redux/apiCalls/categoryApiCall";
-import SimpleMDE from "react-simplemde-editor";
-import "easymde/dist/easymde.min.css";
+import { Editor } from "@tinymce/tinymce-react";
 
 const CreatePost = () => {
   const dispatch = useDispatch();
@@ -19,7 +18,6 @@ const CreatePost = () => {
   const [file, setFile] = useState(null);
 
   const formSubmitHandler = (e) => {
-
     e.preventDefault();
     if (title.trim() === "") return toast.error("Напишите название для поста!");
     if (description.trim() === "")
@@ -48,24 +46,9 @@ const CreatePost = () => {
     dispatch(fetchCategories());
   }, []);
 
-  const options = useMemo(
-    () => ({
-      spellChecker: false,
-      maxHeight: '400px',
-      autofocus: true,
-      placeholder: 'Введите текст...',
-      status: false,
-      autosave: {
-        enabled: true,
-        delay: 1000,
-      },
-    }),
-    [],
-  );
-
-  const onChange = useCallback((description) => {
-    setDescription(description);
-  }, []);
+  const addDesc = (value) => {
+    setDescription(value);
+  };
 
   return (
     <section className="createpost">
@@ -95,7 +78,12 @@ const CreatePost = () => {
           ))}
         </select>
 
-        <SimpleMDE value={description} onChange={onChange} options={options} />
+        <Editor
+          apiKey="1v4buzu0uwzu0rbeb4r8jepdrjiszv2bc1fombmbo4tjj3yn"
+          onEditorChange={(newText) => {
+            setDescription(newText);
+          }}
+        />
 
         {/* <textarea
           value={description}
@@ -132,4 +120,3 @@ const CreatePost = () => {
 };
 
 export default CreatePost;
-
