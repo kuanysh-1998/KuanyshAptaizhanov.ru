@@ -75,6 +75,10 @@
     font-size: 1.2rem;
     line-height: 1.8;
     color: #111111;
+    & img {
+      max-width: 100%;
+      height: auto;
+    }
   }
   &__iconwrapper {
     margin: 15px 0;

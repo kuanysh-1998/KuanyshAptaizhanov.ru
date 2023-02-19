@@ -5,7 +5,7 @@ const PostItem = ({ post, username, userId }) => {
     ? `/profile/${userId}`
     : `/profile/${post?.user?._id}`;
 
-  const sliceText = media  post?.description.slice(0, 170);
+  const sliceText = post?.description.slice(0, 170);
 
   return (
     <div className="postitem">

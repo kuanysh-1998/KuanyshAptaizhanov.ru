@@ -92,6 +92,11 @@
   color: #111111;
 }
 
+.postdetails__description img {
+  max-width: 100%;
+  height: auto;
+}
+
 .postdetails__iconwrapper {
   margin: 15px 0;
   font-size: 27px;
