@@ -1,10 +1,11 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const PostItem = ({ post, username, userId }) => {
   const profileLink = userId
     ? `/profile/${userId}`
     : `/profile/${post?.user?._id}`;
+
+  const sliceText = post?.description.slice(0, 290);
 
   return (
     <div className="postitem">
@@ -34,10 +35,16 @@ const PostItem = ({ post, username, userId }) => {
             {post?.category}
           </Link>
         </div>
-        <p
+
+        <div
+          dangerouslySetInnerHTML={{ __html: `${sliceText}.....` }}
+          className="postitem__description"
+        />
+
+        {/* <p
           dangerouslySetInnerHTML={{ __html: post?.description }}
           className="postitem__description"
-        ></p>
+        ></p> */}
         <Link className="postitem__link" to={`/posts/details/${post?._id}`}>
           Читать...
         </Link>
@@ -45,5 +52,5 @@ const PostItem = ({ post, username, userId }) => {
     </div>
   );
 };
- 
+
 export default PostItem;

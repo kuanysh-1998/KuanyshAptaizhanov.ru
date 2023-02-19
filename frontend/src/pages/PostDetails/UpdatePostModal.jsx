@@ -1,11 +1,12 @@
 import "./update.scss";
 import { BsXCircle } from "react-icons/bs";
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect} from "react";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { updatePost } from "../../redux/apiCalls/postApiCall";
 import { fetchCategories } from "../../redux/apiCalls/categoryApiCall";
 import { Editor } from "@tinymce/tinymce-react";
+
 
 const UpdatePostModal = ({ setUpdatePost, post }) => {
   const dispatch = useDispatch();
@@ -30,6 +31,8 @@ const UpdatePostModal = ({ setUpdatePost, post }) => {
   useEffect(() => {
     dispatch(fetchCategories());
   }, []);
+
+  
 
   return (
     <div className="update">

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { toast } from "react-toastify";
 import "./createpost.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,6 +7,7 @@ import { createPost } from "../../redux/apiCalls/postApiCall";
 import { RotatingLines } from "react-loader-spinner";
 import { fetchCategories } from "../../redux/apiCalls/categoryApiCall";
 import { Editor } from "@tinymce/tinymce-react";
+
 
 const CreatePost = () => {
   const dispatch = useDispatch();
@@ -46,9 +47,7 @@ const CreatePost = () => {
     dispatch(fetchCategories());
   }, []);
 
-  const addDesc = (value) => {
-    setDescription(value);
-  };
+
 
   return (
     <section className="createpost">
@@ -83,7 +82,23 @@ const CreatePost = () => {
           onEditorChange={(newText) => {
             setDescription(newText);
           }}
+        //   init={{
+        //     height: 500,
+        //     menubar: false,
+        //     plugins: [
+        //         'advlist autolink lists link image charmap print preview anchor',
+        //         'searchreplace visualblocks code fullscreen',
+        //         'insertdatetime media table paste code help wordcount'
+        //     ],
+        //     toolbar: 'undo redo | formatselect | ' +
+        //     'bold italic backcolor | alignleft aligncenter ' +
+        //     'alignright alignjustify | bullist numlist outdent indent | ' +
+        //     'removeformat | help',
+        //     content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+        // }}
         />
+
+
 
         {/* <textarea
           value={description}

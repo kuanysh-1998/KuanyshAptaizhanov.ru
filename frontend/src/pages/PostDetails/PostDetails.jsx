@@ -1,5 +1,5 @@
 import "./postdetails.scss";
-import { Link, useParams, useNavigate} from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { FiUserPlus } from "react-icons/fi";
 import { AiOutlineDelete } from "react-icons/ai";
 import { TbEdit } from "react-icons/tb";
@@ -16,7 +16,7 @@ import {
   toggleLikePost,
   updatePostImage,
 } from "../../redux/apiCalls/postApiCall";
-
+import ReactMarkdown from 'react-markdown'
 
 const PostDetails = () => {
   const dispatch = useDispatch();
@@ -112,6 +112,8 @@ const PostDetails = () => {
         dangerouslySetInnerHTML={{ __html: post?.description }}
         className="postdetails__description"
       />
+
+
       <div className="postdetails__iconwrapper">
         <div className="postdetails__iconwrapper-item">
           {user && (
