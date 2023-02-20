@@ -16,7 +16,8 @@ import {
   toggleLikePost,
   updatePostImage,
 } from "../../redux/apiCalls/postApiCall";
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from "react-markdown";
+
 
 const PostDetails = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,8 @@ const PostDetails = () => {
   const { user } = useSelector((state) => state.auth);
   const { id } = useParams();
   const navigate = useNavigate();
+
+  
 
   const [file, setFile] = useState(null);
   const [updatePost, setUpdatePost] = useState(false);
@@ -108,10 +111,12 @@ const PostDetails = () => {
         </div>
       </div>
 
-      <div
+      <ReactMarkdown  className="postdetails__description" children={post?.description} />
+
+      {/* <div
         dangerouslySetInnerHTML={{ __html: post?.description }}
         className="postdetails__description"
-      />
+      /> */}
 
 
       <div className="postdetails__iconwrapper">

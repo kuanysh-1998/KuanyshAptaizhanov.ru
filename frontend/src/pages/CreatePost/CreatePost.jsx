@@ -7,6 +7,8 @@ import { createPost } from "../../redux/apiCalls/postApiCall";
 import { RotatingLines } from "react-loader-spinner";
 import { fetchCategories } from "../../redux/apiCalls/categoryApiCall";
 import { Editor } from "@tinymce/tinymce-react";
+import SimpleMDE from 'react-simplemde-editor';
+import 'easymde/dist/easymde.min.css';
 
 
 const CreatePost = () => {
@@ -47,7 +49,24 @@ const CreatePost = () => {
     dispatch(fetchCategories());
   }, []);
 
+  const onChange = useCallback((value) => {
+    setDescription(value);
+  }, []);
 
+  const options = useMemo(
+    () => ({
+      spellChecker: false,
+      maxHeight: '200px',
+      autofocus: true,
+      status: false,
+      uniqueId: "MyUniqueID",
+      autosave: {
+        enabled: true,
+        delay: 1000,
+      },
+    }),
+    [],
+  );
 
   return (
     <section className="createpost">
@@ -77,26 +96,29 @@ const CreatePost = () => {
           ))}
         </select>
 
-        <Editor
+        <SimpleMDE value={description} onChange={onChange} options={options}  />
+
+
+        {/* <Editor
           apiKey="1v4buzu0uwzu0rbeb4r8jepdrjiszv2bc1fombmbo4tjj3yn"
           onEditorChange={(newText) => {
             setDescription(newText);
           }}
-        //   init={{
-        //     height: 500,
-        //     menubar: false,
-        //     plugins: [
-        //         'advlist autolink lists link image charmap print preview anchor',
-        //         'searchreplace visualblocks code fullscreen',
-        //         'insertdatetime media table paste code help wordcount'
-        //     ],
-        //     toolbar: 'undo redo | formatselect | ' +
-        //     'bold italic backcolor | alignleft aligncenter ' +
-        //     'alignright alignjustify | bullist numlist outdent indent | ' +
-        //     'removeformat | help',
-        //     content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-        // }}
-        />
+          init={{
+            height: 500,
+            menubar: false,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar: 'undo redo | formatselect | ' +
+            'bold italic backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | help',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+        }}
+        /> */}
 
 
 
