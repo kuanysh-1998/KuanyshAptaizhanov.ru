@@ -1,13 +1,11 @@
 import "./update.scss";
 import { BsXCircle } from "react-icons/bs";
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { updatePost } from "../../redux/apiCalls/postApiCall";
 import { fetchCategories } from "../../redux/apiCalls/categoryApiCall";
 import { Editor } from "@tinymce/tinymce-react";
-import SimpleMDE from "react-simplemde-editor";
-import "easymde/dist/easymde.min.css";
 
 const UpdatePostModal = ({ setUpdatePost, post }) => {
   const dispatch = useDispatch();
@@ -32,26 +30,6 @@ const UpdatePostModal = ({ setUpdatePost, post }) => {
   useEffect(() => {
     dispatch(fetchCategories());
   }, []);
-
-  const onChange = useCallback((value) => {
-    setDescription(value);
-  }, []);
-
-  const options = useMemo(
-    () => ({
-      spellChecker: false,
-      maxHeight: '200px',
-      autofocus: true,
-      status: false,
-      uniqueId: "MyUniqueID",
-      autosave: {
-        enabled: true,
-        delay: 1000,
-      },
-    }),
-    [],
-  );
-
 
   return (
     <div className="update">
@@ -83,16 +61,23 @@ const UpdatePostModal = ({ setUpdatePost, post }) => {
             </option>
           ))}
         </select>
-
-        {/* <Editor
-          apiKey="1v4buzu0uwzu0rbeb4r8jepdrjiszv2bc1fombmbo4tjj3yn"
+        <Editor
           initialValue={description}
+          apiKey="1v4buzu0uwzu0rbeb4r8jepdrjiszv2bc1fombmbo4tjj3yn"
           onEditorChange={(newText) => {
             setDescription(newText);
           }}
-        /> */}
-
-        <SimpleMDE value={description} onChange={onChange} options={options} />
+          init={{
+            height: 400,
+            menubar: false,
+            plugins:
+              "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tableofcontents footnotes mergetags autocorrect typography inlinecss",
+            toolbar:
+              "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
+            content_style:
+              "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+          }}
+        />
 
         {/* 
         <textarea

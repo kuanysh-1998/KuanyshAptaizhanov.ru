@@ -1,5 +1,5 @@
 .postdetails {
-  width: 900px;
+  width: 800px;
   margin: auto;
   padding: 20px;
   &__infocomment {
@@ -7,12 +7,12 @@
     color: var(--gray-color);
   }
   &__imagewrapper {
-    height: 400px;
+    // height: 400px;
     margin-bottom: 30px;
   }
   &__image {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: contain;
   }
   &__updatepostlabel {
@@ -38,7 +38,7 @@
   }
   &__title {
     text-align: center;
-    font-size: 40px;
+    font-size: 30px;
     color: #111111;
     margin: 10px 0;
   }

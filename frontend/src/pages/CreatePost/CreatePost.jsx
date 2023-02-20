@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect} from "react";
 import { toast } from "react-toastify";
 import "./createpost.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,9 +7,6 @@ import { createPost } from "../../redux/apiCalls/postApiCall";
 import { RotatingLines } from "react-loader-spinner";
 import { fetchCategories } from "../../redux/apiCalls/categoryApiCall";
 import { Editor } from "@tinymce/tinymce-react";
-import SimpleMDE from 'react-simplemde-editor';
-import 'easymde/dist/easymde.min.css';
-
 
 const CreatePost = () => {
   const dispatch = useDispatch();
@@ -49,25 +46,6 @@ const CreatePost = () => {
     dispatch(fetchCategories());
   }, []);
 
-  const onChange = useCallback((value) => {
-    setDescription(value);
-  }, []);
-
-  const options = useMemo(
-    () => ({
-      spellChecker: false,
-      maxHeight: '200px',
-      autofocus: true,
-      status: false,
-      uniqueId: "MyUniqueID",
-      autosave: {
-        enabled: true,
-        delay: 1000,
-      },
-    }),
-    [],
-  );
-
   return (
     <section className="createpost">
       <h1 className="createpost__title">Создать Новый Пост</h1>
@@ -96,31 +74,22 @@ const CreatePost = () => {
           ))}
         </select>
 
-        <SimpleMDE value={description} onChange={onChange} options={options}  />
-
-
-        {/* <Editor
+        <Editor
           apiKey="1v4buzu0uwzu0rbeb4r8jepdrjiszv2bc1fombmbo4tjj3yn"
           onEditorChange={(newText) => {
             setDescription(newText);
           }}
           init={{
-            height: 500,
+            height: 400,
             menubar: false,
-            plugins: [
-                'advlist autolink lists link image charmap print preview anchor',
-                'searchreplace visualblocks code fullscreen',
-                'insertdatetime media table paste code help wordcount'
-            ],
-            toolbar: 'undo redo | formatselect | ' +
-            'bold italic backcolor | alignleft aligncenter ' +
-            'alignright alignjustify | bullist numlist outdent indent | ' +
-            'removeformat | help',
-            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-        }}
-        /> */}
-
-
+            plugins:
+              "anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tableofcontents footnotes mergetags autocorrect typography inlinecss",
+            toolbar:
+              "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
+            content_style:
+              "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+          }}
+        />
 
         {/* <textarea
           value={description}

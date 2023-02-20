@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
 
 const PostItem = ({ post, username, userId }) => {
   const profileLink = userId
@@ -37,12 +36,10 @@ const PostItem = ({ post, username, userId }) => {
           </Link>
         </div>
 
-        <ReactMarkdown className="postitem__description" children={`${sliceText}.....`} />
-
-        {/* <div
+        <span
           dangerouslySetInnerHTML={{ __html: `${sliceText}.....` }}
           className="postitem__description"
-        /> */}
+        />
 
         {/* <p
           dangerouslySetInnerHTML={{ __html: post?.description }}
