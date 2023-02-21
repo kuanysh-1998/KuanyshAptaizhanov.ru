@@ -106,14 +106,14 @@ const PostDetails = () => {
           <span>{new Date(post?.createdAt).toLocaleDateString()}</span>
         </div>
       </div>
-
       {/* <div
         dangerouslySetInnerHTML={{ __html: post?.description }}
         className="postdetails__description"
       /> */}
-
-      <span className="postdetails__description" dangerouslySetInnerHTML={{ __html: post?.description }} />
-
+      <span
+        className="postdetails__description"
+        dangerouslySetInnerHTML={{ __html: post?.description }}
+      />
       <div className="postdetails__iconwrapper">
         <div className="postdetails__iconwrapper-item">
           {user && (
@@ -143,7 +143,6 @@ const PostDetails = () => {
           </div>
         )}
       </div>
-
       {user ? (
         <AddComment postId={post?._id} />
       ) : (
@@ -151,7 +150,6 @@ const PostDetails = () => {
           Чтобы добавить комментарий, нужно сначала зарегистрироваться!
         </p>
       )}
-
       <CommentList comments={post?.comments} />
       {updatePost && (
         <UpdatePostModal post={post} setUpdatePost={setUpdatePost} />

@@ -1,5 +1,5 @@
 .postdetails {
-  width: 900px;
+  width: 800px;
   margin: auto;
   padding: 20px;
 }
@@ -10,13 +10,12 @@
 }
 
 .postdetails__imagewrapper {
-  height: 400px;
   margin-bottom: 30px;
 }
 
 .postdetails__image {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
 }
 
@@ -46,7 +45,7 @@
 
 .postdetails__title {
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
   color: #111111;
   margin: 10px 0;
 }
@@ -90,6 +89,10 @@
   font-size: 1.2rem;
   line-height: 1.8;
   color: #111111;
+}
+
+.postdetails__description ul, .postdetails__description ol {
+  padding-left: 3rem;
 }
 
 .postdetails__description img {
@@ -138,7 +141,7 @@
     object-fit: cover;
   }
   .postdetails__title {
-    font-size: 27px;
+    font-size: 20px;
     color: #111111;
   }
 }

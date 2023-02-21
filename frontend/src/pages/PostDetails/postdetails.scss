@@ -75,6 +75,9 @@
     font-size: 1.2rem;
     line-height: 1.8;
     color: #111111;
+    & ul, ol {
+      padding-left: 3rem;
+    }
     & img {
       max-width: 100%;
       height: auto;
@@ -117,7 +120,7 @@
       object-fit: cover;
     }
     &__title {
-      font-size: 27px;
+      font-size: 20px;
       color: #111111;
     }
   }
