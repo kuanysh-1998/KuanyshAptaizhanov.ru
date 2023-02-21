@@ -6,10 +6,7 @@ const PostItem = ({ post, username, userId }) => {
     : `/profile/${post?.user?._id}`;
 
 
-  const sliceText =  post?.description.slice(0, 150);
-
-
-    
+  const sliceText = post?.description.slice(0, 130);
 
   return (
     <div className="postitem">
