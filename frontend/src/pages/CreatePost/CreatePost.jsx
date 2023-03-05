@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "./createpost.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -83,11 +83,9 @@ const CreatePost = () => {
             height: 400,
             menubar: false,
             plugins:
-              "anchor textcolor autolink hr charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tableofcontents footnotes mergetags autocorrect typography inlinecss",
+              "anchor textcolor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount",
             toolbar:
-              "undo redo | forecolor backcolor | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat | hr",
-            content_style:
-              "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+              "undo redo | blocks fontfamily fontsize | forecolor backcolor | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat",
           }}
         />
 

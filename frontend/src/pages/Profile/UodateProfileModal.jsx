@@ -32,7 +32,7 @@ const UpdateProfileModal = ({ setUpdateProfile, profile }) => {
             onClick={() => setUpdateProfile(false)}
           />
         </abbr>
-        <h1 className="update__posttitle">Обновить Пост</h1>
+        <h1 className="update__posttitle">Обновить Профиль</h1>
         <input
           type="text"
           className="update__input"
